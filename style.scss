@@ -1,0 +1,152 @@
+$noir : #333;
+
+body{
+    background-color: $noir;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height : 100vh;
+    width : 100vw;
+}
+
+
+.clap{
+    height: auto;
+    width : 20vw;
+    fill : transparent;
+    stroke : white;
+    animation: rotationY 1s ease-in-out infinite;
+    transform-origin: center left;
+    margin-bottom: 5vh;
+    #Haut{
+        animation: rotationZ 1s ease-in infinite;
+        transform-origin: 15% 42%;
+    }
+    #Noise{
+
+        animation: 1s ease-in infinite Slide reverse;
+        stroke-dasharray: 8;
+        stroke-dashoffset: 8;
+    }
+}
+
+
+
+.animation_texte{
+    color : white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.8vh;
+    span{
+    color:white;
+    // propriété inline block obligatoire pour animer chaque lettre indépendamment
+    display: inline-block;
+    animation: translate 2s ease-in-out infinite;
+    }
+    // On retarde l'animation de chaque lettre de 0.05 seconde par rapport à la précédente
+    span:nth-of-type(2) { 
+        animation-delay: .05s;
+    }
+    span:nth-of-type(3) {
+        animation-delay: .10s;
+    }
+    span:nth-of-type(4) {
+        animation-delay: .15s;
+    }
+    span:nth-of-type(5) {
+        animation-delay: .20s;
+    }
+    span:nth-of-type(6) {
+        animation-delay: .25s;
+    }
+    span:nth-of-type(7) {
+        animation-delay: .30s;
+    }
+    span:nth-of-type(8) {
+        animation-delay: .35s;
+    }
+    span:nth-of-type(9) {
+        animation-delay: .40s;
+    }
+    span:nth-of-type(10) {
+        animation-delay: .45s;
+    }
+    span:nth-of-type(11) {
+        animation-delay: .50s;
+    }
+    span:nth-of-type(12) {
+        animation-delay: .55s;
+    }
+    span:nth-of-type(13) {
+        animation-delay: .60s;
+    }
+    span:nth-of-type(14) {
+        animation-delay: .60s;
+    }
+}
+
+// Animation qui effectue le clap, seulement la partie haute du clap est mise en rotation, l'origine se situe dans le rond du clap
+@keyframes rotationZ {
+    0%{
+        transform : rotateZ(0deg);
+    }
+    45%{
+        transform : rotateZ(18.4deg);
+    }
+    85%{
+        transform : rotateZ(0deg);
+    }
+    100%{
+        transform : rotateZ(0deg);
+    }
+}
+
+// Animation qui permet de mettre en rotation tout le clap sur l'axe vertical, l'origine de l'animation est sur le côté gauche du clap au milieu
+@keyframes rotationY{
+    0%{
+        transform : rotateY(0deg);
+    }
+    50%{
+        transform : rotateY(12deg);
+    }
+    100%{
+        transform : rotateY(0deg);
+    }
+}
+
+// Animation qui permet d'animer les traits de son
+@keyframes Slide{
+    0%{
+        stroke-dashoffset: 0;
+    }
+    45%{
+        stroke-dashoffset: 8;
+    }
+    
+    0%{
+        stroke-dashoffset: 0;
+    }
+    
+  }
+// Animation qui fait descendre les lettres et les rend visibles
+@keyframes translate {
+
+	0% {
+		transform : translateY(-50px);
+        opacity: 0; 
+	}
+
+	50% {
+        transform : translateY(0px);
+        opacity: 1;
+	}
+
+	100% {
+        transform : translateY(0px);
+        opacity: 0;
+	}
+}
